@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/site/Section.astro";
+import SocialLinks from "../components/site/SocialLinks.astro";
+import Disclaimer from "../components/site/Disclaimer.astro";
+
+const metaTitle = "Contacto | ATRA y Obesidad Salamanca";
+const metaDescription = "Contacta con ATRA y Obesidad Salamanca. Estamos aquí para orientarte y acompañarte.";
+const keywords = ["contacto TCA Salamanca", "apoyo familiar", "asociación TCA"];
+---
+
+<Layout title={metaTitle} metaDescription={metaDescription} keywords={keywords}>
+  <Section title="Contacto">
+    <div class="space-y-4 text-base leading-relaxed text-slate-700">
+      <p><strong>Teléfono:</strong> 622 92 74 74</p>
+      <p><strong>Dirección:</strong> Paseo del Gran Capitán 53, planta 2, despacho 26 (Casa de las Asociaciones), Salamanca</p>
+      <p><strong>Redes sociales:</strong></p>
+      <SocialLinks
+        phone="622 92 74 74"
+        address="Paseo del Gran Capitán 53, planta 2, despacho 26 (Casa de las Asociaciones), Salamanca"
+        instagram="https://www.instagram.com"
+        facebook="https://www.facebook.com"
+      />
+    </div>
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
+</Layout>

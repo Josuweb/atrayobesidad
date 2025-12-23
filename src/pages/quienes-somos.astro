@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/site/Section.astro";
+import Disclaimer from "../components/site/Disclaimer.astro";
+
+const metaTitle = "Quiénes somos | ATRA y Obesidad Salamanca";
+const metaDescription = "Conoce la misión, visión y valores de ATRA y Obesidad Salamanca, asociación dedicada a la prevención y apoyo en TCA y obesidad.";
+const keywords = ["asociación TCA Salamanca", "apoyo familiar TCA", "misión valores asociación"];
+---
+
+<Layout title={metaTitle} metaDescription={metaDescription} keywords={keywords}>
+  <Section title="Quiénes somos" intro="ATRA y Obesidad Salamanca es una asociación sin ánimo de lucro creada en septiembre de 2019 por familiares de personas afectadas por Trastornos de la Conducta Alimentaria y obesidad. Nuestro domicilio social se encuentra en el Paseo del Gran Capitán 53, planta 2, despacho 26, en la Casa de las Asociaciones de Salamanca.">
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-slate-900">Nuestra misión</h3>
+        <p class="text-base leading-relaxed text-slate-700">Fomentar el bienestar y mejorar la calidad de vida de las personas afectadas por TCA y obesidad, así como de sus familiares, a través del acompañamiento, la orientación y la información.</p>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-slate-900">Nuestra visión</h3>
+        <p class="text-base leading-relaxed text-slate-700">Mantener un compromiso constante con las familias, proporcionando apoyo continuado y contribuyendo a su bienestar a largo plazo.</p>
+      </div>
+    </div>
+  </Section>
+
+  <Section title="Nuestros valores">
+    <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      {["Compromiso social", "Trabajo en equipo", "Colaboración", "Empatía y respeto"].map((value) => (
+        <li class="rounded-xl bg-white p-4 text-sm font-semibold text-slate-800 shadow-sm">{value}</li>
+      ))}
+    </ul>
+  </Section>
+
+  <Section title="Nuestra finalidad">
+    <p class="text-base leading-relaxed text-slate-700">La prevención y orientación, contribuyendo al bienestar y la calidad de vida de las personas afectadas por TCA y obesidad.</p>
+  </Section>
+
+  <Section title="Nuestros objetivos">
+    <ul class="space-y-3 text-base leading-relaxed text-slate-700">
+      <li>Informar y apoyar a familias y personas afectadas.</li>
+      <li>Ofrecer atención telefónica y presencial.</li>
+      <li>Derivar a recursos especializados públicos y privados.</li>
+      <li>Concienciar a la sociedad sobre los TCA y la obesidad.</li>
+      <li>Recaudar fondos para apoyar a personas sin recursos.</li>
+    </ul>
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
+</Layout>
