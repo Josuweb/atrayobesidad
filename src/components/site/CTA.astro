@@ -1,0 +1,26 @@
+---
+export interface Props {
+  title: string;
+  text: string;
+  primaryLabel: string;
+  primaryHref: string;
+}
+
+const { title, text, primaryLabel, primaryHref } = Astro.props;
+---
+<div class="rounded-2xl bg-blue-700 px-6 py-10 text-white shadow-lg sm:px-10">
+  <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+    <div class="max-w-2xl space-y-3">
+      <h3 class="text-2xl font-semibold sm:text-3xl">{title}</h3>
+      <p class="text-base leading-relaxed text-blue-100">{text}</p>
+    </div>
+    <div>
+      <a
+        href={primaryHref}
+        class="inline-flex items-center justify-center rounded-lg bg-white px-5 py-3 text-sm font-semibold text-blue-700 shadow-md transition hover:bg-blue-50"
+      >
+        {primaryLabel}
+      </a>
+    </div>
+  </div>
+</div>

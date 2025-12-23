@@ -1,0 +1,46 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Section from "../../components/site/Section.astro";
+import Disclaimer from "../../components/site/Disclaimer.astro";
+import { posts } from "../../data/posts";
+
+const { slug } = Astro.params;
+const post = posts.find((entry) => entry.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const metaTitle = `${post.title} | ATRA y Obesidad Salamanca`;
+---
+
+<Layout title={metaTitle} metaDescription={post.metaDescription}>
+  <Section title={post.title} intro={post.excerpt}>
+    <div class="space-y-4 text-base leading-relaxed text-slate-700">
+      {post.content.map((paragraph) => (
+        <p>{paragraph}</p>
+      ))}
+    </div>
+  </Section>
+
+  <Section title="Más artículos">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      {posts
+        .filter((entry) => entry.slug !== post.slug)
+        .map((entry) => (
+          <a
+            href={`/blog/${entry.slug}`}
+            class="block rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+          >
+            <h3 class="text-lg font-semibold text-slate-900">{entry.title}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-700">{entry.excerpt}</p>
+            <span class="mt-4 inline-flex text-sm font-semibold text-blue-700">Leer más</span>
+          </a>
+        ))}
+    </div>
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
+</Layout>

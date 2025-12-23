@@ -1,0 +1,20 @@
+---
+import Card from "./Card.astro";
+
+export interface Item {
+  title: string;
+  description: string;
+}
+
+export interface Props {
+  items: Item[];
+  columns?: number;
+}
+
+const { items, columns = 2 } = Astro.props;
+---
+<div class={`grid gap-6 sm:gap-8 ${columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2"} grid-cols-1`}>
+  {items.map((item) => (
+    <Card title={item.title} description={item.description} />
+  ))}
+</div>

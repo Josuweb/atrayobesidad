@@ -1,33 +1,126 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeaderPresentation from "../components/presentation/header"
-import FeaturePresentation from "../components/presentation/feature"
-import LogosPresentation from "../components/presentation/logos"
-import DevFreePresentation from "../components/presentation/developerFree"
-import PalettePresentationFree from "../components/presentation/palette"
-import CodePresentation from "../components/presentation/code"
-import FreeToProPresentation from "../components/presentation/freeToPro"
-import AstroPresentation from "../components/presentation/astro"
-import PagesFreePresentation from "../components/presentation/pagesFree"
-import GithubPresentation from "../components/presentation/github"
-import PricingPresentation from "../components/presentation/pricing"
-import FooterFreePresentation from "../components/presentation/footerFree"
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/site/Hero.astro";
+import Section from "../components/site/Section.astro";
+import CardGrid from "../components/site/CardGrid.astro";
+import CTA from "../components/site/CTA.astro";
+import FAQ from "../components/site/FAQ.astro";
+import SocialLinks from "../components/site/SocialLinks.astro";
+import Disclaimer from "../components/site/Disclaimer.astro";
 
+const faqItems = [
+  {
+    question: "¿ATRA y Obesidad ofrece tratamiento médico?",
+    answer: "No. Ofrecemos orientación y acompañamiento, pero no sustituimos la atención sanitaria.",
+  },
+  {
+    question: "¿A quién van dirigidas las actividades?",
+    answer: "A personas afectadas por TCA y obesidad, y especialmente a sus familiares.",
+  },
+  {
+    question: "¿Es necesario ser socio para participar?",
+    answer: "Algunas actividades están abiertas al público general.",
+  },
+  {
+    question: "¿Las actividades tienen coste?",
+    answer: "Depende de la actividad. Consúltanos para más información.",
+  },
+  {
+    question: "¿Puedo colaborar como voluntario?",
+    answer: "Sí, estaremos encantados de informarte.",
+  },
+];
 ---
 
-<Layout title="Presentation Page">
-	<main>
-    <HeaderPresentation client:only="react" />
-    <FeaturePresentation client:only="react" />
-    <LogosPresentation client:only="react" />
-    <DevFreePresentation client:only="react" />
-    <PalettePresentationFree client:only="react" />
-    <CodePresentation client:only="react" />
-    <FreeToProPresentation client:only="react" />
-    <AstroPresentation client:only="react" />
-    <PagesFreePresentation client:only="react" />
-    <PricingPresentation client:only="react" />
-    <GithubPresentation client:only="react" />
-    <FooterFreePresentation client:only="react" />
-  </main>
+<Layout
+  title="ATRA y Obesidad Salamanca | Prevención y apoyo en TCA"
+  metaDescription="Asociación sin ánimo de lucro en Salamanca dedicada a la prevención, orientación y apoyo a personas y familias afectadas por TCA y obesidad."
+  keywords={["trastornos conducta alimentaria", "TCA Salamanca", "obesidad", "apoyo familiar TCA", "asociación TCA"]}
+>
+  <Hero
+    title="Acompañamos, orientamos y concienciamos sobre los TCA y la obesidad"
+    text="En ATRA y Obesidad Salamanca trabajamos para mejorar la calidad de vida de las personas y familias afectadas por los Trastornos de la Conducta Alimentaria y la obesidad, desde la prevención, la información y el acompañamiento."
+    primaryLabel="Contacta con nosotros"
+    primaryHref="/contacto"
+    secondaryLabel="Conoce nuestra labor"
+    secondaryHref="/quienes-somos"
+  />
+
+  <Section title="Qué hacemos en ATRA y Obesidad">
+    <CardGrid
+      columns={2}
+      items={[
+        {
+          title: "Acompañamiento familiar",
+          description:
+            "Ofrecemos orientación y seguimiento a familiares y personas afectadas por TCA y obesidad, de forma telefónica y presencial.",
+        },
+        {
+          title: "Prevención y sensibilización",
+          description:
+            "Promovemos la concienciación social sobre los trastornos de la conducta alimentaria y la obesidad mediante actividades educativas y divulgativas.",
+        },
+        {
+          title: "Información y orientación",
+          description:
+            "Facilitamos información fiable y derivamos a recursos públicos y privados especializados cuando es necesario.",
+        },
+        {
+          title: "Participación comunitaria",
+          description:
+            "Impulsamos la implicación ciudadana para construir una sociedad más informada, empática y comprometida.",
+        },
+      ]}
+    />
+  </Section>
+
+  <Section title="Actividades y servicios destacados">
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-slate-900">Escuela de padres</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700">Sesiones terapéuticas mensuales dirigidas a familiares que conviven con personas afectadas por TCA.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-slate-900">Yoga y bienestar</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700">Clases de Yoga Suave, Yoga Restaurativo y Yoga y Respiración Consciente, impartidas por una instructora especializada.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-slate-900">Día Internacional de la Lucha contra los TCA</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700">Actividades de sensibilización y visibilización social.</p>
+      </div>
+      <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+        <h3 class="text-lg font-semibold text-slate-900">Banco de libros</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-700">Acceso gratuito a libros especializados para socios de la asociación.</p>
+      </div>
+    </div>
+    <div class="pt-6">
+      <a
+        href="/actividades-y-servicios"
+        class="inline-flex items-center text-sm font-semibold text-blue-700 underline-offset-4 hover:underline"
+      >
+        Ver todas las actividades
+      </a>
+    </div>
+  </Section>
+
+  <Section title="Súmate a nuestra causa" intro="Tu colaboración es fundamental para seguir apoyando a quienes lo necesitan. Puedes participar como voluntario/a o colaborar con la asociación para ayudarnos a continuar nuestra labor social.">
+    <CTA title="¿Quieres colaborar con ATRA y Obesidad Salamanca?" text="Cuéntanos cómo te gustaría apoyar la prevención, la orientación y el acompañamiento a familias afectadas por TCA y obesidad." primaryLabel="Infórmate cómo colaborar" primaryHref="/contacto" />
+  </Section>
+
+  <Section title="Conecta con ATRA y Obesidad" intro="Síguenos en redes sociales o contáctanos directamente.">
+    <SocialLinks
+      phone="622 92 74 74"
+      address="Paseo del Gran Capitán 53, planta 2, despacho 26 (Casa de las Asociaciones), Salamanca"
+      instagram="https://www.instagram.com"
+      facebook="https://www.facebook.com"
+    />
+  </Section>
+
+  <Section title="Preguntas frecuentes">
+    <FAQ items={faqItems} />
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
 </Layout>

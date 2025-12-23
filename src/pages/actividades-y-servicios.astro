@@ -1,0 +1,25 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/site/Section.astro";
+import Disclaimer from "../components/site/Disclaimer.astro";
+
+const metaTitle = "Actividades y servicios | ATRA y Obesidad";
+const metaDescription = "Descubre las actividades y servicios de ATRA y Obesidad Salamanca para familias y personas afectadas por TCA y obesidad.";
+const keywords = ["actividades TCA", "escuela de padres", "yoga bienestar", "apoyo familiar"];
+---
+
+<Layout title={metaTitle} metaDescription={metaDescription} keywords={keywords}>
+  <Section title="Actividades y servicios" intro="Conoce nuestras iniciativas para acompañar y orientar a familias y personas afectadas por Trastornos de la Conducta Alimentaria y obesidad.">
+    <ul class="space-y-4 text-base leading-relaxed text-slate-700">
+      <li>Atención y seguimiento familiar (telefónico y presencial).</li>
+      <li>Escuela de padres (sesiones mensuales).</li>
+      <li>Actividades de yoga y bienestar (viernes 17:45).</li>
+      <li>Celebración del Día Internacional de la Lucha contra los TCA.</li>
+      <li>Banco de libros especializado.</li>
+    </ul>
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
+</Layout>

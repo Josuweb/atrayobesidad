@@ -1,0 +1,10 @@
+---
+export interface Props {
+  text?: string;
+}
+
+const { text = "La asociación orienta y acompaña, pero no sustituye la atención sanitaria profesional." } = Astro.props;
+---
+<div class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+  {text}
+</div>

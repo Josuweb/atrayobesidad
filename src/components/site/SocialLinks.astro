@@ -1,0 +1,28 @@
+---
+export interface Props {
+  phone?: string;
+  address?: string;
+  instagram?: string;
+  facebook?: string;
+}
+
+const { phone, address, instagram, facebook } = Astro.props;
+---
+<div class="flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+  <div class="space-y-2">
+    {phone && (
+      <p class="text-sm font-semibold text-slate-900">
+        Teléfono: <a class="text-blue-700" href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a>
+      </p>
+    )}
+    {address && <p class="text-sm text-slate-700">{address}</p>}
+  </div>
+  <div class="flex items-center gap-4 text-sm font-semibold text-blue-700">
+    {instagram && (
+      <a class="hover:text-blue-900" href={instagram} target="_blank" rel="noreferrer">Instagram</a>
+    )}
+    {facebook && (
+      <a class="hover:text-blue-900" href={facebook} target="_blank" rel="noreferrer">Facebook</a>
+    )}
+  </div>
+</div>

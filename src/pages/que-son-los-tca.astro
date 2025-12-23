@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Section from "../components/site/Section.astro";
+import Disclaimer from "../components/site/Disclaimer.astro";
+
+const metaTitle = "Qué son los TCA | Trastornos de la Conducta Alimentaria";
+const metaDescription = "Información clara y accesible sobre los Trastornos de la Conducta Alimentaria, su impacto y la importancia del abordaje multidisciplinar.";
+const keywords = ["qué son los TCA", "trastornos alimentarios", "información TCA"];
+---
+
+<Layout title={metaTitle} metaDescription={metaDescription} keywords={keywords}>
+  <Section title="¿Qué son los Trastornos de la Conducta Alimentaria?">
+    <div class="space-y-4 text-base leading-relaxed text-slate-700">
+      <p>
+        Los Trastornos de la Conducta Alimentaria se caracterizan por alteraciones significativas en los hábitos alimentarios,
+        asociadas a una preocupación intensa por el peso y la imagen corporal. Aunque afectan mayoritariamente a adolescentes y
+        mujeres, su presencia se extiende a todos los grupos de edad y género.
+      </p>
+      <p>
+        Se estima que alrededor de 70 millones de personas en el mundo padecen algún trastorno alimentario. Los TCA tienen un
+        origen multicausal y requieren un abordaje multidisciplinar, ya que afectan tanto a la persona como a su entorno familiar
+        y social.
+      </p>
+    </div>
+  </Section>
+
+  <div class="mx-auto max-w-6xl px-4 pb-12 sm:px-6 lg:px-8">
+    <Disclaimer />
+  </div>
+</Layout>
